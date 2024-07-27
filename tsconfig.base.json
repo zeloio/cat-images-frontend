@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@library/footer": ["modules/footer/src/index.ts"],
+      "@library/header": ["modules/header/src/index.ts"],
+      "@shared": ["shared/src/index.ts"],
+      "@state": ["modules/state/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
