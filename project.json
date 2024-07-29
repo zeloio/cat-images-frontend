@@ -5,5 +5,43 @@
   "projectType": "application",
   "tags": ["scope:react-frontend", "type:frontend"],
   "// targets": "to see all targets run: nx show project cat-images-frontend --web",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/cat-images-frontend",
+        "configFile": "vite.config.ts"
+      },
+      "configurations": {
+        "production": {
+          "mode": "production"
+        },
+        "staging": {
+          "mode": "staging"
+        },
+        "development": {
+          "mode": "development"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "cat-images-frontend:build",
+        "configFile": "vite.config.ts"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "cat-images-frontend:build:production"
+        },
+        "staging": {
+          "buildTarget": "cat-images-frontend:build:staging"
+        },
+        "development": {
+          "buildTarget": "cat-images-frontend:build:development"
+        }
+      }
+    }
+  }
 }
