@@ -7,19 +7,15 @@ import { Footer } from '@library/footer';
 const homeStyles = stylex.create({
   base: {
     height: '100%',
-    backgroundColor: '#bbb',
   },
   start: {
     height: '100px',
-    backgroundColor: '#999',
   },
   mid: {
     height: 'calc(100% - 175px)',
-    backgroundColor: '#aaa',
   },
   end: {
     height: '75px',
-    backgroundColor: '#bbb',
   },
 });
 

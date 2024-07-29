@@ -21,7 +21,7 @@ export const Logo = memo(function Logo(props: LogoProps) {
   return (
     <div {...stylex.props(logoStyles.base)}>
       <img src="https://picsum.photos/75/100" alt="logo" />
-      <span>typesmoothly</span>
+      <span>Images Cat</span>
     </div>
   );
 });

@@ -25,6 +25,8 @@ export default defineConfig({
   //  plugins: [ nxViteTsPaths() ],
   // },
 
+  envDir: './src/app/environment',
+  envPrefix: 'IC_',
   build: {
     outDir: './dist/cat-images-frontend',
     emptyOutDir: true,

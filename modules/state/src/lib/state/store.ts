@@ -1,14 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { translationReducer } from './entities/translation';
-import { challengeOptionsReducer } from './entities/challengeOptions/challenge-options.slice';
-import { challengeSettingsReducer } from './entities/challengeSettings/challenge-settings.slice';
-import { playgroundReducer } from './entities';
+import { settingsReducer } from './entities';
 
 export const store = configureStore({
   reducer: {
-    challengeOptions: challengeOptionsReducer,
-    challengeSettings: challengeSettingsReducer,
-    playground: playgroundReducer,
+    settings: settingsReducer,
     translation: translationReducer,
   },
 });

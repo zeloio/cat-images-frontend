@@ -1,5 +1,4 @@
 import stylex, { StyleXStyles } from '@stylexjs/stylex';
-import { colors } from '../../../globalTokens.stylex';
 import { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition, SizeProp } from '@fortawesome/fontawesome-svg-core';

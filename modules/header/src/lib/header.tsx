@@ -1,5 +1,5 @@
 import stylex from '@stylexjs/stylex';
-import { Account, Logo, Modes, QuickActions } from '../ui';
+import { Logo } from '../ui';
 import { memo } from 'react';
 
 const headerStyles = stylex.create({
@@ -27,12 +27,12 @@ export const Header = memo(function Header(props: HeaderProps) {
     <div {...stylex.props(headerStyles.base)}>
       <div {...stylex.props(headerStyles.side)}>
         <Logo></Logo>
-        <QuickActions></QuickActions>
+        {/* <QuickActions></QuickActions> */}
       </div>
 
       <div {...stylex.props(headerStyles.side)}>
-        <Modes></Modes>
-        <Account></Account>
+        {/* <Modes></Modes>
+        <Account></Account> */}
       </div>
     </div>
   );

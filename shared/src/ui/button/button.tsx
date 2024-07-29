@@ -21,6 +21,10 @@ const buttonStyles = stylex.create({
     borderRadius: '8px',
     padding: '5px',
   },
+  md: {
+    borderRadius: '8px',
+    padding: '5px',
+  },
   lg: {
     borderRadius: '10px',
     padding: '10px',
@@ -77,6 +81,10 @@ const innerContainerStyles = stylex.create({
     height: '26px',
     minWidth: '26px',
   },
+  md: {
+    height: '30px',
+    minWidth: '26px',
+  },
   lg: {
     height: '28px',
     minWidth: '28px',
@@ -92,7 +100,7 @@ const innerContainerStyles = stylex.create({
 
 interface ButtonProps extends DOMAttributes<HTMLButtonElement> {
   type: 'primary' | 'secondary' | 'error' | 'accent' | 'clear';
-  size: 'zero' | 'xs' | 'sm' | 'lg' | 'xl';
+  size: 'zero' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   direction: 'row' | 'column';
   width: number;
   style: StyleXStyles;
