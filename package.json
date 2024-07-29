@@ -7,7 +7,13 @@
     "start": "nx serve",
     "serve:staging": "nx run cat-images-frontend --mode staging",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "serve:ic:dev": "nx serve cat-images-frontend --configuration development",
+    "serve:ic:staging": "nx serve cat-images-frontend --configuration staging",
+    "serve:ic:prod": "nx serve cat-images-frontend --configuration production",
+    "build:ic:dev": "nx build cat-images-frontend --configuration development",
+    "build:ic:staging": "nx build cat-images-frontend --configuration staging",
+    "build:ic:prod": "nx build cat-images-frontend --configuration production"
   },
   "private": true,
   "dependencies": {
