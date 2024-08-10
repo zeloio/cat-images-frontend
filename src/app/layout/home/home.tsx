@@ -7,12 +7,13 @@ import { Footer } from '@library/footer';
 const homeStyles = stylex.create({
   base: {
     height: '100%',
+    minHeight: '600px',
   },
   start: {
-    height: '100px',
+    height: '140px',
   },
   mid: {
-    height: 'calc(100% - 175px)',
+    height: 'calc(100% - 215px)',
   },
   end: {
     height: '75px',

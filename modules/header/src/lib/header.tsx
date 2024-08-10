@@ -27,13 +27,9 @@ export const Header = memo(function Header(props: HeaderProps) {
     <div {...stylex.props(headerStyles.base)}>
       <div {...stylex.props(headerStyles.side)}>
         <Logo></Logo>
-        {/* <QuickActions></QuickActions> */}
       </div>
 
-      <div {...stylex.props(headerStyles.side)}>
-        {/* <Modes></Modes>
-        <Account></Account> */}
-      </div>
+      <div {...stylex.props(headerStyles.side)}></div>
     </div>
   );
 });

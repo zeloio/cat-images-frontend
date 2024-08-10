@@ -1,0 +1,9 @@
+{
+  "name": "link-options",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "modules/link-options/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:feature"],
+  "// targets": "to see all targets run: nx show project link-options --web",
+  "targets": {}
+}

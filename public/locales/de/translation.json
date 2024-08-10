@@ -1,5 +1,19 @@
 {
+  "welcome": {
+    "title": "Welcome to Images Cat"
+  },
+  "header": {
+    "title": "Images Cat",
+    "subtitle": "The Lorem Ipsum for photos but with cats"
+  },
   "home": {
-    "title": "Typesmootly"
+    "title": "Simple and adaptable feline placeholders",
+    "description": "Just specify your desired image size (width and height) in the URL, and you'll receive a random cat image.",
+    "tips": "Tip: To get a square image, just add one size.",
+    "toggle_description": "Toggle me to get the same specific image everytime"
+  },
+  "link": {
+    "copy": "Copy",
+    "copied": "Copied!"
   }
 }

@@ -1,11 +1,12 @@
-import { memo } from 'react';
-import stylex from '@stylexjs/stylex';
+import { DOMAttributes, memo } from 'react';
+import stylex, { StyleXStyles } from '@stylexjs/stylex';
 import { colors } from '../../../globalTokens.stylex';
 
 const styles = stylex.create({
   base: {
     width: '100%',
     margin: '8px',
+    padding: '0',
     color: colors.secondary,
     border: 'none',
     fontSize: '1rem',
@@ -18,19 +19,36 @@ const styles = stylex.create({
   },
 });
 
-export interface InputProps {
-  value: string;
+const colorStyles = stylex.create({
+  primary: {
+    color: colors.primary,
+  },
+  secondary: {
+    color: colors.secondary,
+  },
+  gray1: {
+    color: colors.gray1,
+  },
+  gray2: {
+    color: colors.gray2,
+  },
+});
+
+export interface InputProps extends DOMAttributes<HTMLInputElement> {
+  value: string | number;
+  color?: 'primary' | 'secondary' | 'gray1' | 'gray2';
+  style?: StyleXStyles;
 }
 
 export const Input = memo(function Input(props: InputProps) {
-  const { value } = props;
+  const { value, color = 'primary', style, onChange } = props;
 
   return (
     <input
-      {...stylex.props(styles.base)}
+      {...stylex.props(styles.base, colorStyles[color], style)}
       type="text"
-      value={value}
-      onChange={(e) => {}}
+      defaultValue={value}
+      onChange={onChange}
     />
   );
 });

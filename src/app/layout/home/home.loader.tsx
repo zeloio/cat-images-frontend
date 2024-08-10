@@ -1,7 +1,7 @@
 const env = import.meta.env;
 
 export async function HomeLayoutLoader() {
-  await delay(1000);
+  await delay(0);
 
   return true;
 }

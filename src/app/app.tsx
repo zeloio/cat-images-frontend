@@ -10,6 +10,7 @@ import { languages } from './configs';
 import { RouterProvider } from 'react-router-dom';
 import { Splashscreen } from './views';
 import { router } from './app.router';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function App() {
   const dispatch = useAppDispatch();

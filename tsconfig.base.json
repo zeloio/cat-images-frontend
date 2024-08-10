@@ -18,6 +18,7 @@
       "@library/footer": ["modules/footer/src/index.ts"],
       "@library/generated-link": ["modules/generated-link/src/index.ts"],
       "@library/header": ["modules/header/src/index.ts"],
+      "@library/link-options": ["modules/link-options/src/index.ts"],
       "@shared": ["shared/src/index.ts"],
       "@state": ["modules/state/src/index.ts"]
     }

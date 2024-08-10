@@ -10,6 +10,10 @@ import {
 import { Description, H1 } from '@shared';
 import Toggle from 'react-toggle';
 import { GeneratedLink } from '@library/generated-link';
+import { LinkOptions } from '@library/link-options';
+import { ToastContainer } from 'react-toastify';
+
+const mobileBreakpoint = `@media (max-width: 768px)`;
 
 const viewStyle = stylex.create({
   base: {
@@ -17,14 +21,17 @@ const viewStyle = stylex.create({
     flexDirection: 'column',
     justifyContent: 'center',
     height: '100%',
-    width: '95%',
+    width: '100%',
     maxWidth: '1400px',
     margin: '0 auto',
     boxSizing: 'border-box',
     padding: '32px 0',
   },
   card: {
-    padding: '64px',
+    padding: {
+      default: '64px',
+      [mobileBreakpoint]: '32px 16px',
+    },
     backgroundColor: '#F4F7FC',
   },
   centeredContainer: {
@@ -44,8 +51,8 @@ const viewStyle = stylex.create({
   midContainer: {},
   bottomContainer: {
     display: 'flex',
-    justifyContent: 'center',
-    height: '50px',
+    justifyContent: 'flex-end',
+    height: '20px',
     alignItems: 'center',
     alignContent: 'center',
     gap: '8px',
@@ -66,42 +73,44 @@ export function UrlGeneratorView() {
     );
 
   useEffect(() => {
-    document.title = t('welcome.tab_name');
+    document.title = t('welcome.title');
   }, [t]);
 
   return (
-    <div {...stylex.props(viewStyle.base)}>
-      <div {...stylex.props(viewStyle.card)}>
-        <div {...stylex.props(viewStyle.centeredContainer)}>
-          <div {...stylex.props(viewStyle.topContainer)}>
-            <H1>Simple and user-friendly feline placeholders</H1>
-            <Description>
-              Just specify your desired image size (width and height) in the
-              URL, and you'll receive a random cat image.
-            </Description>
-            <Description>
-              Tip: To get a square image, just add the size.
-            </Description>
-          </div>
+    <>
+      <div {...stylex.props(viewStyle.base)}>
+        <div {...stylex.props(viewStyle.card)}>
+          <div {...stylex.props(viewStyle.centeredContainer)}>
+            <div {...stylex.props(viewStyle.topContainer)}>
+              <H1>{t('home.title')}</H1>
+              <Description>{t('home.description')}</Description>
+              <Description>{t('home.tips')}</Description>
+            </div>
 
-          <div {...stylex.props(viewStyle.midContainer)}>
-            <GeneratedLink />
-          </div>
+            <div {...stylex.props(viewStyle.midContainer)}>
+              <LinkOptions />
+            </div>
 
-          <div {...stylex.props(viewStyle.bottomContainer)}>
-            <Toggle
-              defaultChecked={permanentLinkState}
-              icons={false}
-              value="permanent"
-              onChange={onPermalinkToggleChange}
-            />
+            <div {...stylex.props(viewStyle.midContainer)}>
+              <GeneratedLink />
+            </div>
 
-            <Description>
-              Toogle me to get the same specific image everytime
-            </Description>
+            <div {...stylex.props(viewStyle.bottomContainer)}>
+              <Description>{t('home.toggle_description')}</Description>
+
+              <Toggle
+                defaultChecked={permanentLinkState}
+                icons={false}
+                className="custom-react-toggle"
+                value="permanent"
+                onChange={onPermalinkToggleChange}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <ToastContainer />
+    </>
   );
 }

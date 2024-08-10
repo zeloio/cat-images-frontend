@@ -28,8 +28,7 @@
     "serve": {
       "executor": "@nx/vite:dev-server",
       "options": {
-        "buildTarget": "cat-images-frontend:build",
-        "configFile": "vite.config.ts"
+        "buildTarget": "cat-images-frontend:build"
       },
       "configurations": {
         "production": {
