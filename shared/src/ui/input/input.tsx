@@ -49,6 +49,7 @@ export const Input = memo(function Input(props: InputProps) {
       type="text"
       defaultValue={value}
       onChange={onChange}
+      readOnly
     />
   );
 });

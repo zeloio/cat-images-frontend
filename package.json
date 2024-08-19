@@ -8,6 +8,7 @@
     "serve:staging": "nx run cat-images-frontend --mode staging",
     "build": "nx build",
     "test": "nx test",
+    "deploy:production": "npm run build:ic:prod && docker-compose --context docker-server-agent-1 up -d --scale worker=4",
     "serve:ic:dev": "nx serve cat-images-frontend --configuration development",
     "serve:ic:staging": "nx serve cat-images-frontend --configuration staging",
     "serve:ic:prod": "nx serve cat-images-frontend --configuration production",

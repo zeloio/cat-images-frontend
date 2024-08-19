@@ -50,7 +50,7 @@ export const GeneratedLink = memo(function GeneratedLink(
     setCopied(false);
 
     setGeneratedLink(
-      `https://images.cat/${settings.width || settings.height}/${
+      `https://api.images.cat/${settings.width || settings.height}/${
         settings.height || settings.width
       }${settings.permanent ? `/${uuidv4()}` : ``}`
     );

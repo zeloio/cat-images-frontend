@@ -10,7 +10,7 @@
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/cat-images-frontend",
+        "outputPath": "dist",
         "configFile": "vite.config.ts"
       },
       "configurations": {
