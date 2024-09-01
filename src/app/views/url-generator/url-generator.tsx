@@ -12,52 +12,8 @@ import Toggle from 'react-toggle';
 import { GeneratedLink } from '@library/generated-link';
 import { LinkOptions } from '@library/link-options';
 import { ToastContainer } from 'react-toastify';
-
-const mobileBreakpoint = `@media (max-width: 768px)`;
-
-const viewStyle = stylex.create({
-  base: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    height: '100%',
-    width: '100%',
-    maxWidth: '1400px',
-    margin: '0 auto',
-    boxSizing: 'border-box',
-    padding: '32px 0',
-  },
-  card: {
-    padding: {
-      default: '64px',
-      [mobileBreakpoint]: '32px 16px',
-    },
-    backgroundColor: '#F4F7FC',
-  },
-  centeredContainer: {
-    width: '95%',
-    margin: '0 auto',
-    maxWidth: '800px',
-    display: 'flex',
-    gap: '16px',
-    flexDirection: 'column',
-  },
-  topContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  midContainer: {},
-  bottomContainer: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    height: '20px',
-    alignItems: 'center',
-    alignContent: 'center',
-    gap: '8px',
-  },
-});
+import { ImagePreview } from '@library/image-preview';
+import { viewStyle } from './url-generator.style';
 
 export function UrlGeneratorView() {
   const dispatch = useAppDispatch();
@@ -80,10 +36,11 @@ export function UrlGeneratorView() {
     <>
       <div {...stylex.props(viewStyle.base)}>
         <div {...stylex.props(viewStyle.card)}>
-          <div {...stylex.props(viewStyle.centeredContainer)}>
+          <div {...stylex.props(viewStyle.settingsContainer)}>
             <div {...stylex.props(viewStyle.topContainer)}>
               <H1>{t('home.title')}</H1>
               <Description>{t('home.description')}</Description>
+
               <Description>{t('home.tips')}</Description>
             </div>
 
@@ -106,6 +63,10 @@ export function UrlGeneratorView() {
                 onChange={onPermalinkToggleChange}
               />
             </div>
+          </div>
+
+          <div {...stylex.props(viewStyle.imageContainer)}>
+            <ImagePreview />
           </div>
         </div>
       </div>

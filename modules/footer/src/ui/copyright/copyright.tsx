@@ -19,8 +19,7 @@ export const Copyright = memo(function Copyright(props: CopyrightProps) {
   return (
     <div {...stylex.props(copyrightStyles.base)}>
       <Button size="sm" type="clear">
-        Copyright 2024
-        <Icon name={faCopyright} size="lg" />
+        Copyright 2024 &#169;
       </Button>
     </div>
   );

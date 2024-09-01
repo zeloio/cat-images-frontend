@@ -50,9 +50,9 @@ const styles = stylex.create({
 });
 
 const MIN_WIDTH = 1;
-const MAX_WIDTH = 2520;
+const MAX_WIDTH = 999;
 const MIN_HEIGHT = 1;
-const MAX_HEIGHT = 1440;
+const MAX_HEIGHT = 999;
 
 /* eslint-disable-next-line */
 export interface LinkOptionsProps {}
@@ -62,6 +62,7 @@ export function LinkOptions(props: LinkOptionsProps) {
   const height = useAppSelector(selectHeight);
   const dispatch = useAppDispatch();
 
+  console.log('LinkOptions rendered');
   const handleWidthChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {
       if (e.currentTarget.value === '') {

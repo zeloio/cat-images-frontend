@@ -13,7 +13,7 @@ const homeStyles = stylex.create({
     height: '140px',
   },
   mid: {
-    height: 'calc(100% - 215px)',
+    minHeight: 'calc(100% - 215px)',
   },
   end: {
     height: '75px',
