@@ -38,10 +38,11 @@ export interface InputProps extends DOMAttributes<HTMLInputElement> {
   value: string | number;
   color?: 'primary' | 'secondary' | 'gray1' | 'gray2';
   style?: StyleXStyles;
+  readOnly?: boolean;
 }
 
 export const Input = memo(function Input(props: InputProps) {
-  const { value, color = 'primary', style, onChange } = props;
+  const { value, color = 'primary', style, onChange, readOnly = false } = props;
 
   return (
     <input
@@ -49,6 +50,7 @@ export const Input = memo(function Input(props: InputProps) {
       type="text"
       defaultValue={value}
       onChange={onChange}
+      readOnly={readOnly}
     />
   );
 });

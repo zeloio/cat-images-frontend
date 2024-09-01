@@ -80,7 +80,7 @@ export const GeneratedLink = memo(function GeneratedLink(
         <Icon name={faLink} size="lg" />
       </div>
 
-      <Input value={generatedLink} color="secondary"></Input>
+      <Input value={generatedLink} color="secondary" readOnly={true}></Input>
 
       <Button
         style={styles.copyButton}
