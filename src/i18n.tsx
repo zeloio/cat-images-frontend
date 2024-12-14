@@ -4,8 +4,6 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const env = import.meta.env;
-
 /**
  * define custom backend path
  * start from /public folder
@@ -21,7 +19,7 @@ i18n
   .init({
     fallbackLng: 'en',
     initImmediate: true,
-    debug: env.MW_DEBUG === 'true',
+    debug: false,
     supportedLngs: ['en', 'it', 'fr', 'es', 'de'], // array of allowed languages
     load: 'languageOnly', // language loading strategy
     lowerCaseLng: true, // parse everything to lowercase

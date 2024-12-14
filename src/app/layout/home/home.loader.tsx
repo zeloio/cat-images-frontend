@@ -1,5 +1,3 @@
-const env = import.meta.env;
-
 export async function HomeLayoutLoader() {
   await delay(0);
 
