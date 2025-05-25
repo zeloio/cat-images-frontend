@@ -18,6 +18,7 @@ const defaultTheme = {
   components: {
     Layout: {
       headerBg: 'rgb(255,255,255)',
+      headerHeight: 140,
     },
   },
 };
