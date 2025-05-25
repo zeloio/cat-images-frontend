@@ -1,22 +1,17 @@
 import stylex from '@stylexjs/stylex';
-import { Copyright, Links } from '../ui';
 import { memo } from 'react';
+import { Flex, Typography } from 'antd';
+import { Icon } from '@shared';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
+const { Text } = Typography;
 
 const footerStyles = stylex.create({
   base: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     height: '100%',
     width: '95%',
     margin: '0 auto',
     maxWidth: '1800px',
-  },
-  side: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: '10px',
   },
 });
 /* eslint-disable-next-line */
@@ -24,14 +19,17 @@ export interface FooterProps {}
 
 export const Footer = memo(function Footer(props: FooterProps) {
   return (
-    <div {...stylex.props(footerStyles.base)}>
-      <div {...stylex.props(footerStyles.side)}>
-        <Links></Links>
-      </div>
+    <Flex
+      justify="space-between"
+      align="center"
+      {...stylex.props(footerStyles.base)}
+    >
+      <Flex gap={'small'}>
+        <Icon name={faHeart} size="sm" />
+        <Text>Made with love by Zelo.io</Text>
+      </Flex>
 
-      <div {...stylex.props(footerStyles.side)}>
-        <Copyright></Copyright>
-      </div>
-    </div>
+      <Text>Copyright 2024 &#169;</Text>
+    </Flex>
   );
 });

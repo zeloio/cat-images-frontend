@@ -1,8 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import stylex from '@stylexjs/stylex';
-import { useTranslation } from 'react-i18next';
-import { Header } from '@library/header';
-import { Footer } from '@library/footer';
+// import { useTranslation } from 'react-i18next';
+import { Header as ICHeader } from '@library/header';
+import { Footer as ICFooter } from '@library/footer';
+import { Layout } from 'antd';
+import { Content, Footer, Header } from 'antd/es/layout/layout';
 
 const homeStyles = stylex.create({
   base: {
@@ -21,21 +23,21 @@ const homeStyles = stylex.create({
 });
 
 export function HomeLayout() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   return (
-    <div {...stylex.props(homeStyles.base)}>
-      <div {...stylex.props(homeStyles.start)}>
-        <Header></Header>
-      </div>
+    <Layout {...stylex.props(homeStyles.base)}>
+      <Header {...stylex.props(homeStyles.start)}>
+        <ICHeader></ICHeader>
+      </Header>
 
-      <div {...stylex.props(homeStyles.mid)}>
+      <Content {...stylex.props(homeStyles.mid)}>
         <Outlet></Outlet>
-      </div>
+      </Content>
 
-      <div {...stylex.props(homeStyles.end)}>
-        <Footer></Footer>
-      </div>
-    </div>
+      <Footer {...stylex.props(homeStyles.end)}>
+        <ICFooter></ICFooter>
+      </Footer>
+    </Layout>
   );
 }

@@ -1,5 +1,5 @@
 import stylex from '@stylexjs/stylex';
-import { RotatingLines } from 'react-loader-spinner';
+// import { RotatingLines } from 'react-loader-spinner';
 
 const splashscreenStyles = stylex.create({
   base: {
@@ -9,9 +9,5 @@ const splashscreenStyles = stylex.create({
 });
 
 export function Splashscreen() {
-  return (
-    <>
-      <span {...stylex.props(splashscreenStyles.base)}>Spashscreen</span>
-    </>
-  );
+  return <span {...stylex.props(splashscreenStyles.base)}>Spashscreen</span>;
 }

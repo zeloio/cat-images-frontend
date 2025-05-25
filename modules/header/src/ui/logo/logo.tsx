@@ -1,22 +1,15 @@
 import stylex from '@stylexjs/stylex';
 import { memo } from 'react';
 import logo from '../../../assets/logo/logo.png';
-import { H2, Label } from '@shared';
 import { useTranslation } from 'react-i18next';
+import { Flex, Typography } from 'antd';
+
+const { Title, Text } = Typography;
 
 const styles = stylex.create({
-  base: {},
-  imageBox: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: '8px',
-  },
   title: {
     fontFamily: 'Work Sans',
-    fontSize: '1.8rem',
-    fontWeight: 'bold',
-    margin: '16px 0 0 8px',
+    margin: '8px 0 0 0',
   },
   description: {
     fontSize: '1.2rem',
@@ -30,16 +23,15 @@ export const Logo = memo(function Logo(props: LogoProps) {
   const { t } = useTranslation();
 
   return (
-    <div {...stylex.props(styles.base)}>
-      <div {...stylex.props(styles.imageBox)}>
-        <img src={logo} alt="logo" />
+    <Flex vertical gap={'small'}>
+      <Flex gap={'small'} align="center">
+        <img src={logo} alt="logo" height={60} width={38} />
+        <Title {...stylex.props(styles.title)} level={2}>
+          {t('header.title')}
+        </Title>
+      </Flex>
 
-        <H2 style={styles.title}>{t('header.title')}</H2>
-      </div>
-
-      <div>
-        <Label style={styles.description}>{t('header.subtitle')}</Label>
-      </div>
-    </div>
+      <Text {...stylex.props(styles.description)}>{t('header.subtitle')}</Text>
+    </Flex>
   );
 });

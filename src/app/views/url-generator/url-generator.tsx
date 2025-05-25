@@ -7,26 +7,29 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@state';
-import { Description, H1 } from '@shared';
+import { Description } from '@shared';
 import Toggle from 'react-toggle';
 import { GeneratedLink } from '@library/generated-link';
 import { LinkOptions } from '@library/link-options';
 import { ToastContainer } from 'react-toastify';
 import { ImagePreview } from '@library/image-preview';
 import { viewStyle } from './url-generator.style';
+import { Col, Flex, Row, Switch, Typography } from 'antd';
+import Title from 'antd/es/typography/Title';
+
+const { Text } = Typography;
 
 export function UrlGeneratorView() {
   const dispatch = useAppDispatch();
   const permanentLinkState = useAppSelector(selectPermanent);
   const { t } = useTranslation();
 
-  const onPermalinkToggleChange: ChangeEventHandler<HTMLInputElement> =
-    useCallback(
-      (event) => {
-        dispatch(setPermanent(event.target.checked));
-      },
-      [dispatch]
-    );
+  const onPermalinkToggleChange = useCallback(
+    (checked: boolean) => {
+      dispatch(setPermanent(checked));
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
     document.title = t('welcome.title');
@@ -34,42 +37,47 @@ export function UrlGeneratorView() {
 
   return (
     <>
-      <div {...stylex.props(viewStyle.base)}>
-        <div {...stylex.props(viewStyle.card)}>
-          <div {...stylex.props(viewStyle.settingsContainer)}>
-            <div {...stylex.props(viewStyle.topContainer)}>
-              <H1>{t('home.title')}</H1>
-              <Description>{t('home.description')}</Description>
+      <Flex justify="center" align="center" {...stylex.props(viewStyle.base)}>
+        <Row gutter={[12, 24]} {...stylex.props(viewStyle.row)}>
+          <Col xs={24} sm={24} md={12} lg={14} xl={16}>
+            <Flex justify="center" align="center">
+              <Flex vertical gap={'middle'}>
+                <Flex vertical align="start">
+                  <Title level={2}>{t('home.title')}</Title>
 
-              <Description>{t('home.tips')}</Description>
-            </div>
+                  <Text>{t('home.description')}</Text>
 
-            <div {...stylex.props(viewStyle.midContainer)}>
-              <LinkOptions />
-            </div>
+                  <Text>{t('home.tips')}</Text>
+                </Flex>
 
-            <div {...stylex.props(viewStyle.midContainer)}>
-              <GeneratedLink />
-            </div>
+                <LinkOptions />
 
-            <div {...stylex.props(viewStyle.bottomContainer)}>
-              <Description>{t('home.toggle_description')}</Description>
+                <GeneratedLink />
 
-              <Toggle
-                defaultChecked={permanentLinkState}
-                icons={false}
-                className="custom-react-toggle"
-                value="permanent"
-                onChange={onPermalinkToggleChange}
-              />
-            </div>
-          </div>
+                <Flex gap={'middle'} justify="end" align="center">
+                  <Text>{t('home.toggle_description')}</Text>
 
-          <div {...stylex.props(viewStyle.imageContainer)}>
-            <ImagePreview />
-          </div>
-        </div>
-      </div>
+                  <Switch
+                    defaultChecked
+                    value={permanentLinkState}
+                    onChange={onPermalinkToggleChange}
+                  />
+                </Flex>
+              </Flex>
+            </Flex>
+          </Col>
+
+          <Col xs={24} sm={24} md={12} lg={10} xl={8}>
+            <Flex
+              justify="center"
+              align="center"
+              {...stylex.props(viewStyle.imagePreview)}
+            >
+              <ImagePreview />
+            </Flex>
+          </Col>
+        </Row>
+      </Flex>
 
       <ToastContainer />
     </>
